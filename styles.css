@@ -66,6 +66,10 @@ main {
   background-color: #f6f1ec;
 }
 
+.card {
+  border: 1px solid #3b3b3b;
+}
+
 footer {
   margin-top: auto;
   text-align: center;
