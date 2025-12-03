@@ -1,81 +1,106 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 :root {
-  font-family: sans-serif;
+    font-family: "montserrat";
 }
 
 body {
-  background: #736b66;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
+    background: #736b66;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 }
 
 header {
-  min-width: 100%; /* gör att headern alltid tar hela bredden */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    min-width: 100%; /* gör att headern alltid tar hela bredden */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #logoImg {
-  width: 150px;
-  height: 125px;
+    width: 150px;
+    height: 125px;
 }
 
 nav {
-  background-color: #e8d3d0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-  padding: 3px;
-  gap: 0.4rem;
-  width: 100%;
+    background-color: #e8d3d0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    padding: 3px;
+    gap: 0.4rem;
+    width: 100%;
 }
 
 #cartContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .navBtn {
-  background-color: #d4e4ce;
-  color: #759078;
-  font-family: "montserrat";
-  font-weight: 600;
-  text-transform: uppercase;
-  border: 1px solid #759078;
-  border-radius: 15px;
-  padding: 2px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  max-width: 115px;
+    background-color: #d4e4ce;
+    color: #759078;
+    font-family: "montserrat";
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid #759078;
+    border-radius: 15px;
+    padding: 2px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    max-width: 115px;
 }
 
 #cartIkon {
-  width: 35px;
-  height: 35px;
+    width: 35px;
+    height: 35px;
 }
 
 main {
-  background-color: #f6f1ec;
+    background-color: #f6f1ec;
+    border-radius: 5px;
+    width: 100%;
+    padding: 20px;
+    margin: 1px;
 }
 
 .card {
-  border: 1px solid #3b3b3b;
+    border: 1px solid #3b3b3b;
+    color: #3b3b3b;
+    border-radius: 3px;
+    background-color: white;
+    width: 136px;
+    height: 240px;
+    padding: 5px;
+}
+.card h3 {
+    max-width: 100%; /* Gör så att h1 aldrig blir bredare än kortet */
+    white-space: nowrap; /* Ingen radbrytning */
+    overflow: hidden; /* Göm text som inte får plats */
+    text-overflow: ellipsis; /* Lägg till "..." */
+
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.card p {
+      font-weight: 700;
+    font-size: 25px;
 }
 
 footer {
-  margin-top: auto;
-  text-align: center;
+    padding-top: 20px;
+    margin-top: auto;
+    text-align: center;
 }
 .footerLink,
 .footerText {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
