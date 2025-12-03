@@ -3,19 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
     <title>In Sisters Garden</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
-      <img src="" alt="logga" id="logoImg" />
+      <img src="assets/images/Logga-1.png" alt="logga" id="logoImg" />
       <nav>
-        <button class="navBtn" id="allProd">Alla produkter</button>
+        <!-- <button class="navBtn" id="allProd">Alla produkter</button> -->
         <button class="navBtn" id="greenProd">Gröna växter</button>
         <button class="navBtn" id="bloomProd">Blommande växter</button>
         <button class="navBtn" id="cactProd">Suckulenter & kaktusar</button>
-        <img class="navBtn" id="cartIkon" src="" alt="Varukorg" />
-        <p>0</p>
+        <div id="cartContainer">
+          <img id="cartIkon" src="assets/icons/Cart.png" alt="cart" />
+          <p id="counter">0</p>
+        </div>
       </nav>
     </header>
 

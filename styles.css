@@ -17,11 +17,49 @@ body {
 
 header {
   min-width: 100%; /* gör att headern alltid tar hela bredden */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#logoImg {
+  width: 150px;
+  height: 125px;
 }
 
 nav {
   background-color: #e8d3d0;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  padding: 3px;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+#cartContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navBtn {
+  background-color: #d4e4ce;
+  color: #759078;
+  font-family: "montserrat";
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid #759078;
+  border-radius: 15px;
+  padding: 2px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  max-width: 115px;
+}
+
+#cartIkon {
+  width: 35px;
+  height: 35px;
 }
 
 main {
