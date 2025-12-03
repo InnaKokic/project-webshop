@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: sans-serif;
+}
+
+body {
+  background: #736b66;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+header {
+  min-width: 100%; /* gör att headern alltid tar hela bredden */
+}
+
+nav {
+  background-color: #e8d3d0;
+  display: flex;
+}
+
+main {
+  background-color: #f6f1ec;
+}
+
+footer {
+  margin-top: auto;
+  text-align: center;
+}
+.footerLink,
+.footerText {
+  text-decoration: none;
+  color: white;
+}
