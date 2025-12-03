@@ -33,6 +33,21 @@ const products = [
     new Product(4, "Garderobsblomma", 249, true, "gröna växter"),
     new Product(5, "Elefantöra", 129, true, "gröna växter"),
     new Product(6, "Gummiträd", 279, true, "gröna växter"),
+
+    new Product(7, "Orkidé", 199, true, "blommande växter"),
+    new Product(8, "Primula", 45, true, "blommande växter"),
+    new Product(9, "Cyklamen", 59, true, "blommande växter"),
+    new Product(10, "Hibiskus", 149, true, "blommande växter"),
+    new Product(11, "Flamingoblomma", 249, true, "blommande växter"),
+    new Product(12, "Kalanchoe", 39, true, "blommande växter"),
+
+    new Product(13, "Aloe Vera", 89, true, "suckulenter & kaktusar"),
+    new Product(14, "Echeveria Elegans", 69, true, "suckulenter & kaktusar"),
+    new Product(15, "Plattkaktus", 129, true, "suckulenter & kaktusar"),
+    new Product(16, "Haworthia Fasciata", 79, true, "suckulenter & kaktusar"),
+    new Product(17, "Grön Kaktus Mini – Mix", 39, true, "suckulenter & kaktusar"),
+    new Product(18, "San Pedro kaktus", 179, true, "suckulenter & kaktusar")
+    
 ];
 
 products.forEach((product) => {
