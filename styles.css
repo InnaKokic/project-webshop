@@ -23,8 +23,8 @@ header {
 }
 
 #logoImg {
-    width: 150px;
-    height: 130px;
+    width: 35%;
+    height: 35%;
 }
 
 .cardImg {
@@ -71,6 +71,12 @@ nav {
     max-width: 115px;
 }
 
+.navBtn:hover {
+    background-color: #759078;
+    color: #d4e4ce;
+    border: 1px solid #d4e4ce;
+}
+
 #cartIkon {
     width: 35px;
     height: 35px;
@@ -92,8 +98,8 @@ main {
 }
 
 .card {
-    border: 1px solid #3b3b3b;
-    color: #3b3b3b;
+    border: 1px solid #b8b8b8;
+    color: #424242;
     border-radius: 3px;
     background-color: white;
     width: 150px;
