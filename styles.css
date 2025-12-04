@@ -24,7 +24,7 @@ header {
 
 #logoImg {
     width: 150px;
-    height: 125px;
+    height: 140px;
 }
 
 .cardImg {
@@ -32,6 +32,16 @@ header {
     height: 110px;
 }
 
+#homeBtn {
+    width: 35px;
+    height: 35px;
+    background: none;
+    border: none;
+}
+#homeBtnIcon {
+    width: 35px;
+    height: 35px;
+}
 nav {
     background-color: #e8d3d0;
     display: flex;
@@ -95,7 +105,7 @@ main {
 }
 
 .card p {
-      font-weight: 700;
+    font-weight: 700;
     font-size: 25px;
 }
 
