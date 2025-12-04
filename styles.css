@@ -22,6 +22,19 @@ header {
     align-items: center;
 }
 
+#topHeader {
+    /* display: grid; */
+    /* valfritt, bara för att visa att du kan ha flera kolumner */
+    /* grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "bt logo logo tomt";
+
+    grid-area: bt; */
+}
+
+#homeBtn {
+    justify-self: start;
+}
+
 #logoImg {
     width: 35%;
     height: 35%;
