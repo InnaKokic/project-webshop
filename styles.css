@@ -24,7 +24,7 @@ header {
 
 #logoImg {
     width: 150px;
-    height: 140px;
+    height: 130px;
 }
 
 .cardImg {
@@ -93,7 +93,7 @@ main {
     height: 240px;
     padding: 5px;
 }
-.card h3 {
+#cardTitle {
     max-width: 100%; /* Gör så att h1 aldrig blir bredare än kortet */
     white-space: nowrap; /* Ingen radbrytning */
     overflow: hidden; /* Göm text som inte får plats */
@@ -104,7 +104,7 @@ main {
     text-transform: uppercase;
 }
 
-.card p {
+#cardPrice {
     font-weight: 700;
     font-size: 25px;
 }

@@ -21,8 +21,8 @@ class Product {
 
         card.innerHTML = `
         <img src="${this.image}" class="cardImg" alt="Produktbild"/>
-        <h3> ${this.name} </h3>
-        <p> ${this.price};-</p>
+        <h3 id="cardTitle"> ${this.name} </h3>
+        <p id="cardPrice"> ${this.price};-</p>
         <button class="details-btn">Visa mer</button>
         <button class="addToCart-btn">Lägg i kundvagn</button>
     `;
@@ -216,9 +216,8 @@ filterBtnCactus.addEventListener("click", () =>
     showFiltered("suckulenter & kaktusar")
 );
 
-
 homeBtn.addEventListener("click", () => {
-	products.forEach((product) => {
-    gallery.appendChild(product.renderCards());
+    products.forEach((product) => {
+        gallery.appendChild(product.renderCards());
+    });
 });
-})
