@@ -27,6 +27,11 @@ header {
     height: 125px;
 }
 
+.cardImg {
+    width: 100px;
+    height: 110px;
+}
+
 nav {
     background-color: #e8d3d0;
     display: flex;
