@@ -42,6 +42,7 @@ header {
     width: 35px;
     height: 35px;
 }
+
 nav {
     background-color: #e8d3d0;
     display: flex;
@@ -51,11 +52,24 @@ nav {
     padding: 3px;
     gap: 0.4rem;
     width: 100%;
+    max-width: 100%vw;
 }
 
 #cartContainer {
     display: flex;
     align-items: center;
+}
+
+#cartBtn {
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+}
+
+#cartIkon {
+    width: 30px;
+    height: 30px;
 }
 
 .navBtn {
@@ -75,11 +89,6 @@ nav {
     background-color: #759078;
     color: #d4e4ce;
     border: 1px solid #d4e4ce;
-}
-
-#cartIkon {
-    width: 35px;
-    height: 35px;
 }
 
 main {
@@ -164,4 +173,32 @@ footer {
 .footerText {
     text-decoration: none;
     color: white;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+}
+
+.modal-img {
+    width: 50%;
+    display: block;
+    margin: 0 auto 1rem; /* centrerar bilden */
+    border-radius: 8px;
 }

@@ -30,7 +30,13 @@
                     Suckulenter & kaktusar
                 </button>
                 <div id="cartContainer">
-                    <img id="cartIkon" src="assets/icons/Cart.png" alt="cart" />
+                    <button id="cartBtn">
+                        <img
+                            src="assets/icons/Cart.png"
+                            id="cartIkon"
+                            alt="Kundvagn"
+                        />
+                    </button>
                     <p id="counter">0</p>
                 </div>
             </nav>
@@ -49,7 +55,12 @@
             <a class="footerLink footerText" href="http://">Kundservice</a>
             <p class="footerText">&copy; 2025 In Sisters Garden AB</p>
         </footer>
-
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <span id="closeModal">&times;</span>
+                <div id="modalBody"></div>
+            </div>
+        </div>
         <script src="main.js"></script>
     </body>
 </html>

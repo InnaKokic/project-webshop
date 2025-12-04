@@ -3,6 +3,7 @@ const filterBtnGreen = document.querySelector("#greenCat");
 const filterBtnFlower = document.querySelector("#flowerCat");
 const filterBtnCactus = document.querySelector("#cactCat");
 const homeBtn = document.querySelector("#homeBtn");
+const cartBtn = document.querySelector("#cartBtn");
 
 class Product {
     constructor(id, name, price, inStock, category) {
@@ -32,6 +33,10 @@ class Product {
 
 		</div>
     `;
+        const detailsBtn = card.querySelector("#details-btn");
+        detailsBtn.addEventListener("click", () => {
+            openDetailsModal(this); // skickar hela produktobjektet till modal-funktionen
+        });
 
         return card;
     }
@@ -226,4 +231,51 @@ homeBtn.addEventListener("click", () => {
     products.forEach((product) => {
         gallery.appendChild(product.renderCards());
     });
+});
+
+// ÖPPNAR DETAILS MODALEN
+
+function openDetailsModal(product) {
+    const modal = document.querySelector("#modal");
+    const modalBody = document.querySelector("#modalBody");
+
+    modalBody.innerHTML = `
+        <img src="${product.image}" class="modal-img" />
+
+        <h2>${product.name}</h2>
+        <p><strong>Pris:</strong> ${product.price} kr</p>
+        <p><strong>Kategori:</strong> ${product.category}</p>
+        <p><strong>Lagersaldo:</strong> ${
+            product.inStock ? "Finns i lager" : "Slut i lager"
+        }</p>
+
+        <h3>Beskrivning</h3>
+        <p>${product.description}</p>
+    `;
+
+    modal.classList.remove("hidden");
+}
+
+const openCartModal = () => {
+    const modal = document.querySelector("#modal");
+    const modalBody = document.querySelector("#modalBody");
+    modal.classList.remove("hidden");
+
+    modalBody.innerHTML = `<br> <br> <br>`;
+};
+
+// STÄNGER MODALEN
+
+document.querySelector("#closeModal").addEventListener("click", () => {
+    document.querySelector("#modal").classList.add("hidden");
+});
+
+document.querySelector("#modal").addEventListener("click", (e) => {
+    if (e.target.id === "modal") {
+        e.target.classList.add("hidden");
+    }
+});
+
+cartBtn.addEventListener("click", (e) => {
+    openCartModal();
 });
