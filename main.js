@@ -20,11 +20,17 @@ class Product {
         card.classList.add("card"); //ger klassnamn till vår nya div
 
         card.innerHTML = `
-        <img src="${this.image}" class="cardImg" alt="Produktbild"/>
-        <h3 id="cardTitle"> ${this.name} </h3>
-        <p id="cardPrice"> ${this.price};-</p>
-        <button class="details-btn">Visa mer</button>
-        <button class="addToCart-btn">Lägg i kundvagn</button>
+		<div id = "cardWrapper">
+        	<img src="${this.image}" class="cardImg" alt="Produktbild"/>
+
+			<div id="cardContent">
+				<h3 id="cardTitle"> ${this.name} </h3>
+				<p id="cardPrice"> ${this.price};-</p>
+				<button class="cardBtn" id="details-btn">Visa mer</button>
+				<button class="cardBtn" id="addToCart-btn">Lägg i kundvagn</button>
+			</div>
+
+		</div>
     `;
 
         return card;
