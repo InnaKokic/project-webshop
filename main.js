@@ -3,7 +3,7 @@ const filterBtnGreen = document.querySelector("#greenCat");
 const filterBtnFlower = document.querySelector("#flowerCat");
 const filterBtnCactus = document.querySelector("#cactCat");
 const homeBtn = document.querySelector("#homeBtn");
-const cartBtn = document.querySelector("#cartBtn"); //kundvagns Ikon
+const cartBtn = document.querySelector("#cartBtn");
 const counter = document.querySelector("#counter");
 
 class Product {
@@ -43,15 +43,8 @@ class Product {
 
         const addToCartBtn = card.querySelector("#addToCart-btn");
 
-        // addToCartBtn.addEventListener("click", () => {
-        //   cart.push(this);
-        //   //funktion som lägger till kortet (produkten) i varukorgen
-        //   openCartModal();
-        //   updateCounter();
-        // });
-
-        /*   En funktion som kollar om produkten redan ligger i korgen,
-    i så fall plussa antalet, annars lägg till den med antal 1 */
+        /*   En funktion som kollar om produkten redan ligger i cart, i så fall (if) plussa antalet, 
+        annars (else) lägg till den i cart med antal 1 */
         addToCartBtn.addEventListener("click", () => {
             const existingProduct = cart.find((item) => item.id === this.id);
             if (existingProduct) {
@@ -220,12 +213,11 @@ const productInfo = [
     },
 ];
 
-//En tom array för vår varukorg där vi ska lägga till produkter
+//En tom array för vår kundvagn där vi ska lägga till produkter
 const cart = [];
 
-/* Loopar igenom alla produkter i products‑arrayen. Hittar motsvarande objekt 
-   i productInfo som har samma id. Om ett matchande objekt hittas:
-   tilldelas product.image och product.description värdena från productInfo. */
+/* Loopar igenom alla produkter i products‑arrayen. Hittar motsvarande objekt i productInfo som har samma id. 
+Om (if) ett matchande objekt hittas: tilldelas product.image och product.description värdena från productInfo. */
 products.forEach((product) => {
     const info = productInfo.find((item) => item.id === product.id);
 
@@ -237,7 +229,8 @@ products.forEach((product) => {
 
 // Skapar en alfabetiskt sorterad kopia av products-arrayen (sorterar efter produktnamn)
 // ... = kopierar arrayen
-//.localeCompare() = en innbyggd funktion som sortetar utifrån språkets alfabet. Man kan välja vilket språk, annars är default eng.
+/* .localeCompare() är en inbyggd funktion som sortetar utifrån språkets alfabet. 
+Man kan välja vilket språk, annars är default eng. */
 const sorted = [...products].sort((a, b) => a.name.localeCompare(b.name, "sv"));
 
 // Loopar igenom den sorterade listan och renderar varje produktkort till galleriet med hjälp av sorted() funktionen
@@ -269,7 +262,7 @@ filterBtnCactus.addEventListener("click", () =>
     filteredCategory("suckulenter & kaktusar")
 );
 
-//Evenlistener för hemknappen som, likt första funktionen, visar alla våra produkter igen, sorterade.
+//Eventlistener för hemknappen som visar alla våra produkter sorterade, igen.
 homeBtn.addEventListener("click", () => {
     gallery.innerHTML = "";
 
@@ -278,9 +271,9 @@ homeBtn.addEventListener("click", () => {
     });
 });
 
-// ÖPPNAR DETAILS "Visa mer" MODALEN
+// Öppnar Details-modalen
 
-function openDetailsModal(product) {
+const openDetailsModal = (product) => {
     const modal = document.querySelector("#modal"); //Hämtar in modal-elementet från HTML
     const modalBody = document.querySelector("#modalBody"); //Hämtar in modal-elementet från HTML
 
@@ -301,9 +294,9 @@ function openDetailsModal(product) {
 
     modal.classList.remove("hidden"); //Tar bort klassen "hidden" för att modalen ska synas när funktionen aktiveras
     //Tar bort klassnamn för att styling för cart endast ska gälla på cart
-}
+};
 
-//Funktion för att öppna vår varukorg
+//Öppnar Cart-modalen
 const openCartModal = () => {
     const modal = document.querySelector("#modal");
     const modalBody = document.querySelector("#modalBody");
@@ -315,7 +308,7 @@ const openCartModal = () => {
         return;
     }
 
-    // Starta modalen
+    //Modalens innehåll
     modalBody.innerHTML = `
   <div id = "cartHeader">
     <h2>Kundvagn</h2>
@@ -335,7 +328,7 @@ const openCartModal = () => {
     // Hämta containern vi skapade
     const container = modalBody.querySelector("#cartModal-content");
 
-    // Lägg in alla produkter direkt
+    // Produktens information i varukorgen (cartModal-content)
     cart.forEach((item, index) => {
         container.innerHTML += `
       <div class="cartItem">
@@ -344,8 +337,7 @@ const openCartModal = () => {
         <p id="cartQuantity">Antal: ${item.quantity} </p>
         <p id="cartPrice" >${item.price} kr/st</p>
         <button onclick="deleteItem(${index})" class="x-btn" id="deleteBtn">&times;</button>
-                        
-      </div>
+        </div>
     `;
     });
     document.querySelector(
@@ -353,13 +345,8 @@ const openCartModal = () => {
     ).textContent = `Totalsumma: ${totalSum()} kr`;
 };
 
-/* 
-index → var i arrayen vi ska börja
-1 → hur många element som ska tas bort 
-*/
-
 const deleteItem = (index) => {
-    cart.splice(index, 1);
+    cart.splice(index, 1); //index → var i arrayen vi ska börja, 1 → hur många element som ska tas bort
     openCartModal();
     updateCounter();
 };
@@ -383,17 +370,17 @@ document.querySelector("#modal").addEventListener("click", (e) => {
 const updateCounter = () => {
     let items = 0;
     for (let i = 0; i < cart.length; i++) {
-        items += cart[i].quantity; //Uppdaterar priset baserat på antalet av varje produkt som finns i korgen
+        items += cart[i].quantity; //Uppdaterar priset baserat på antalet av varje produkt som finns i cart
     }
     counter.textContent = items;
 };
 updateCounter();
 
-//Funktion för att addera summan av alla våra produkter i varukorgen
+//Funktion för att addera summan av alla våra produkter i cart
 const totalSum = () => {
     let sum = 0;
     for (let i = 0; i < cart.length; i++) {
-        sum += cart[i].price * cart[i].quantity; //Uppdaterar priset baserat på antalet av varje produkt som finns i korgen
+        sum += cart[i].price * cart[i].quantity; //Uppdaterar priset baserat på antalet av varje produkt som finns i cart
     }
     return sum;
 };
