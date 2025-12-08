@@ -312,7 +312,7 @@ const openCartModal = () => {
     modalBody.innerHTML = `
   <div id = "cartHeader">
     <h2>Kundvagn</h2>
-    <button id = "clearCart">Töm kundvagn</button>
+    <button class="cardBtn" id = "clearCart">Töm kundvagn</button>
     </div>
     <div id="cartModal-content"></div>
     <p id="totalPrice"></p>
