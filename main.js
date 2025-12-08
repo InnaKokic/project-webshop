@@ -4,6 +4,7 @@ const filterBtnFlower = document.querySelector("#flowerCat");
 const filterBtnCactus = document.querySelector("#cactCat");
 const homeBtn = document.querySelector("#homeBtn");
 const cartBtn = document.querySelector("#cartBtn"); //kundvagns Ikon
+const counter = document.querySelector("#counter");
 
 class Product {
   constructor(id, name, price, inStock, category) {
@@ -42,10 +43,25 @@ class Product {
 
     const addToCartBtn = card.querySelector("#addToCart-btn");
 
+    // addToCartBtn.addEventListener("click", () => {
+    //   cart.push(this);
+    //   //funktion som lägger till kortet (produkten) i varukorgen
+    //   openCartModal();
+    //   updateCounter();
+    // });
+
+    /*   En funktion som kollar om produkten redan ligger i korgen,
+    i så fall plussa antalet, annars lägg till den med antal 1 */
     addToCartBtn.addEventListener("click", () => {
-      cart.push(this);
-      //funktion som lägger till kortet (produkten) i varukorgen
+      const existingProduct = cart.find((item) => item.id === this.id);
+      if (existingProduct) {
+        existingProduct.quantity++; //skapar en ny egenskap (key) i vårt this-objekt
+      } else {
+        cart.push({ ...this, quantity: 1 });
+      }
       openCartModal();
+      updateCounter();
+      console.log(cart);
     });
 
     return card;
@@ -199,7 +215,7 @@ const productInfo = [
 ];
 
 //En tom array för vår varukorg där vi ska lägga till produkter
-let cart = [];
+const cart = [];
 
 /* Loopar igenom alla produkter i products‑arrayen. Hittar motsvarande objekt 
    i productInfo som har samma id. Om ett matchande objekt hittas:
@@ -284,9 +300,20 @@ const openCartModal = () => {
 
   // Starta modalen
   modalBody.innerHTML = `
-    <h2>Varukorg</h2>
+  <div id = "cartHeader">
+    <h2>Kundvagn</h2>
+    <button id = "clearCart">Töm kundvagn</button>
+    </div>
     <div id="cartModal-content"></div>
+    <p id="totalPrice"></p>
+  
   `;
+  //Funktion för att clear button ska tömma hela varukorgen
+  const clearBtn = document.querySelector("#clearCart");
+  clearBtn.addEventListener("click", () => {
+    modalBody.innerHTML = "<h2>Kundvagn</h2><p>Din kundvagn är tom.</p>";
+    return;
+  });
 
   // Hämta containern vi skapade
   const container = modalBody.querySelector("#cartModal-content");
@@ -297,15 +324,14 @@ const openCartModal = () => {
       <div class="cartItem">
         <img src="${item.image}" class="cartModalImg" />
         <p>${item.name}</p>
-        <p>${item.price} kr</p>
+        <p>Antal: ${item.quantity} </p>
+        <p>${item.price} kr/st</p>
         <button onclick="deleteItem(${index})" class="x-btn" id="deleteBtn">&times;</button>
                         
       </div>
     `;
-
-    // const deleteBtn = container.querySelector("#deleteBtn");
-    // deleteBtn.addEventListener("click", () => {});
   });
+  document.querySelector("#totalPrice").textContent = `Totalsumma: ${totalSum()} kr`;
 };
 
 /* 
@@ -316,6 +342,7 @@ index → var i arrayen vi ska börja
 const deleteItem = (index) => {
   cart.splice(index, 1);
   openCartModal();
+  updateCounter();
 };
 
 cartBtn.addEventListener("click", (e) => {
@@ -333,3 +360,21 @@ document.querySelector("#modal").addEventListener("click", (e) => {
     e.target.classList.add("hidden");
   }
 });
+
+const updateCounter = () => {
+  let items = 0;
+  for (let i = 0; i < cart.length; i++) {
+    items += cart[i].quantity; //Uppdaterar priset baserat på antalet av varje produkt som finns i korgen
+  }
+  counter.textContent = items;
+};
+updateCounter();
+
+//Funktion för att addera summan av alla våra produkter i varukorgen
+const totalSum = () => {
+  let sum = 0;
+  for (let i = 0; i < cart.length; i++) {
+    sum += cart[i].price * cart[i].quantity; //Uppdaterar priset baserat på antalet av varje produkt som finns i korgen
+  }
+  return sum;
+};
