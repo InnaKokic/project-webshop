@@ -89,13 +89,15 @@ nav {
     background-color: #d4e4ce;
     color: #759078;
     font-family: "montserrat";
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     border: 1px solid #759078;
     border-radius: 15px;
     padding: 2px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    max-width: 115px;
+    max-width: 110px;
+    min-height: 35px;
 }
 
 .navBtn:hover {
@@ -114,9 +116,10 @@ main {
 
 #gallery {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
-    row-gap: 25px;
+    grid-template-columns: 150px 150px;
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 30px;
 }
 
 .card {
@@ -195,6 +198,14 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#closeModal {
+    /* position: absolute;
+    top: 7px;
+    right: 10px;
+    font-size: 1.5rem; */
+    cursor: pointer;
 }
 
 .modal.hidden {
