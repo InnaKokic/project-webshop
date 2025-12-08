@@ -1,68 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet"
-        />
-        <title>In Sisters Garden</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <header>
-            <div id="topHeader">
-                <button id="homeBtn">
-                    <img
-                        src="assets\icons\Home-Btn.png"
-                        id="homeBtnIcon"
-                        alt="home button"
-                    />
-                </button>
-                <img src="assets/images/Logotyp.png" alt="logga" id="logoImg" />
-            </div>
-            <nav>
-                <!-- <button class="navBtn" id="allProd">Alla produkter</button> -->
-                <button class="navBtn" id="greenCat">Gröna växter</button>
-                <button class="navBtn" id="flowerCat">Blommande växter</button>
-                <button class="navBtn" id="cactCat">
-                    Suckulenter & kaktusar
-                </button>
-                <div id="cartContainer">
-                    <button id="cartBtn">
-                        <img
-                            src="assets/icons/Cart.png"
-                            id="cartIkon"
-                            alt="Kundvagn"
-                        />
-                    </button>
-                    <p id="counter">0</p>
-                </div>
-            </nav>
-        </header>
-
-        <main>
-            <section id="gallery">
-                <!-- Productcards will be inserted through JavaScript -->
-            </section>
-        </main>
-
-        <footer>
-            <a class="footerLink footerText" href="http://"
-                >Om oss & Vår butik</a
-            >
-            <a class="footerLink footerText" href="http://">Kundservice</a>
-            <p class="footerText">&copy; 2025 In Sisters Garden AB</p>
-        </footer>
-        <div id="modal" class="modal hidden">
-            <div class="modal-content">
-                <span id="closeModal">&times;</span>
-                <div id="modalBody"></div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <title>In Sisters Garden</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <img src="assets/images/Logotyp.png" alt="logga" id="logoImg" />
+      <button id="homeBtn">
+        <img src="assets\icons\Home-Btn.png" id="homeBtnIcon" alt="home button" />
+      </button>
+      <nav>
+        <!-- <button class="navBtn" id="allProd">Alla produkter</button> -->
+        <button class="navBtn" id="greenCat">Gröna växter</button>
+        <button class="navBtn" id="flowerCat">Blommande växter</button>
+        <button class="navBtn" id="cactCat">Suckulenter & kaktusar</button>
+        <div id="cartContainer">
+          <button id="cartBtn">
+            <img src="assets/icons/Cart.png" id="cartIkon" alt="Kundvagn" />
+          </button>
+          <div id="counter"></div>
         </div>
-        <script src="main.js"></script>
-    </body>
+      </nav>
+    </header>
+
+    <main>
+      <section id="gallery">
+        <!-- Productcards will be inserted through JavaScript -->
+      </section>
+    </main>
+
+    <footer>
+      <a class="footerLink footerText" href="http://">Om oss & Vår butik</a>
+      <a class="footerLink footerText" href="http://">Kundservice</a>
+      <p class="footerText">&copy; 2025 In Sisters Garden AB</p>
+    </footer>
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <button class="x-btn" id="closeModal">&times;</button>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
