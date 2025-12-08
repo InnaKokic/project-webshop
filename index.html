@@ -22,7 +22,13 @@
                         alt="home button"
                     />
                 </button>
-                <img src="assets/images/Logotyp.png" alt="logga" id="logoImg" />
+                <div id="logoCrop">
+                    <img
+                        src="assets/images/Logotyp.png"
+                        alt="logga"
+                        id="logoImg"
+                    />
+                </div>
             </div>
             <nav>
                 <!-- <button class="navBtn" id="allProd">Alla produkter</button> -->
@@ -39,7 +45,7 @@
                             alt="Kundvagn"
                         />
                     </button>
-                    <p id="counter">0</p>
+                    <div id="counter"></div>
                 </div>
             </nav>
         </header>
@@ -59,7 +65,7 @@
         </footer>
         <div id="modal" class="modal hidden">
             <div class="modal-content">
-                <span id="closeModal">&times;</span>
+                <button class="x-btn" id="closeModal">&times;</button>
                 <div id="modalBody"></div>
             </div>
         </div>
