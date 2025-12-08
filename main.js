@@ -3,7 +3,7 @@ const filterBtnGreen = document.querySelector("#greenCat");
 const filterBtnFlower = document.querySelector("#flowerCat");
 const filterBtnCactus = document.querySelector("#cactCat");
 const homeBtn = document.querySelector("#homeBtn");
-const cartBtn = document.querySelector("#cartBtn");
+const cartBtn = document.querySelector("#cartBtn"); //kundvagns Ikon
 
 class Product {
   constructor(id, name, price, inStock, category) {
@@ -38,6 +38,14 @@ class Product {
     const detailsBtn = card.querySelector("#details-btn");
     detailsBtn.addEventListener("click", () => {
       openDetailsModal(this); // skickar hela produktobjektet till modal-funktionen (alltså allting som finns i objekten vi sakapar nedan i products)
+    });
+
+    const addToCartBtn = card.querySelector("#addToCart-btn");
+
+    addToCartBtn.addEventListener("click", () => {
+      cart.push(this);
+      //funktion som lägger till kortet (produkten) i varukorgen
+      openCartModal();
     });
 
     return card;
@@ -190,6 +198,9 @@ const productInfo = [
   },
 ];
 
+//En tom array för vår varukorg där vi ska lägga till produkter
+let cart = [];
+
 /* Loopar igenom alla produkter i products‑arrayen. Hittar motsvarande objekt 
    i productInfo som har samma id. Om ett matchande objekt hittas:
    tilldelas product.image och product.description värdena från productInfo. */
@@ -265,9 +276,46 @@ const openCartModal = () => {
   const modalBody = document.querySelector("#modalBody");
   modal.classList.remove("hidden");
 
+  // Om varukorgen är tom
+  if (cart.length === 0) {
+    modalBody.innerHTML = "<h2>Kundvagn</h2><p>Din kundvagn är tom.</p>";
+    return;
+  }
+
+  // Starta modalen
   modalBody.innerHTML = `
-  <h2>Kassa</h2>
+    <h2>Varukorg</h2>
+    <div id="cartModal-content"></div>
   `;
+
+  // Hämta containern vi skapade
+  const container = modalBody.querySelector("#cartModal-content");
+
+  // Lägg in alla produkter direkt
+  cart.forEach((item, index) => {
+    container.innerHTML += `
+      <div class="cartItem">
+        <img src="${item.image}" class="cartModalImg" />
+        <p>${item.name}</p>
+        <p>${item.price} kr</p>
+        <button onclick="deleteItem(${index})" class="x-btn" id="deleteBtn">&times;</button>
+                        
+      </div>
+    `;
+
+    // const deleteBtn = container.querySelector("#deleteBtn");
+    // deleteBtn.addEventListener("click", () => {});
+  });
+};
+
+/* 
+index → var i arrayen vi ska börja
+1 → hur många element som ska tas bort 
+*/
+
+const deleteItem = (index) => {
+  cart.splice(index, 1);
+  openCartModal();
 };
 
 cartBtn.addEventListener("click", (e) => {
