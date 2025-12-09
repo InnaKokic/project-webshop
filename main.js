@@ -276,7 +276,7 @@ function openDetailsModal(product) {
 
         <h2>${product.name}</h2>
         <p><strong>Pris:</strong> ${product.price} kr</p>
-        <p><strong>Kategori:</strong> ${product.category}</p>
+        <p id="details-category"><strong>Kategori:</strong> ${product.category}</p>
         <p><strong>Lagersaldo:</strong> ${product.inStock ? "Finns i lager" : "Slut i lager"}</p>
 
         <h3>Beskrivning</h3>
