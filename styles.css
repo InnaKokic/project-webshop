@@ -15,6 +15,8 @@ body {
   margin: 0;
 }
 
+/*-- Header styling --*/
+
 header {
   min-width: 100%; /* gör att headern alltid tar hela bredden */
   display: flex;
@@ -43,7 +45,7 @@ button {
   justify-content: center;
   align-items: center;
 }
-
+/* -- Logo styling -- */
 #logoImg {
   width: 150px;
   height: auto;
@@ -53,7 +55,7 @@ button {
   width: 100px;
   height: 110px;
 }
-
+/* -- Home icon styling -- */
 #homeBtn {
   width: 35px;
   height: 35px;
@@ -66,19 +68,26 @@ button {
   width: 35px;
   height: 35px;
 }
-
+/*-- Navbar styling --*/
 nav {
   background-color: #e8d3d0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border-radius: 5px;
   padding: 3px;
   gap: 0.4rem;
-  width: 100%;
-  max-width: 100%vw;
+  /* width: 100%; */
+  /*   max-width: 100%vw; */
 }
+/* #btnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+} */
 
+/* -- Cart & counter styling -- */
 #cartContainer {
   display: flex;
   align-items: center;
@@ -104,8 +113,10 @@ nav {
 }
 .cartModalImg {
   width: 50px;
-  height: auto;
+  height: 90px;
 }
+
+/* -- Filter button styling -- */
 
 .navBtn {
   background-color: #d4e4ce;
@@ -128,6 +139,7 @@ nav {
   border: 1px solid #d4e4ce;
 }
 
+/* -- Gallery styling -- */
 main {
   background-color: #f6f1ec;
   border-radius: 5px;
@@ -144,6 +156,7 @@ main {
   row-gap: 30px;
 }
 
+/*-- Card styling --*/
 .card {
   border: 1px solid #b8b8b8;
   color: #424242;
@@ -202,22 +215,35 @@ main {
   padding: 3px;
 }
 
+.cardBtn:hover {
+  background-color: #d4e4ce;
+  color: #759078;
+}
+
 #clearCart {
   font-size: 13px;
   padding: 3px;
 }
-
+/*-- Footer styling --*/
 footer {
-  padding-top: 20px;
+  padding: 20px;
   margin-top: auto;
   text-align: center;
 }
-.footerLink,
+
 .footerText {
   text-decoration: none;
-  color: white;
+  color: #809c84;
+  font-weight: 500;
+  text-shadow: 0 0 5px rgb(55, 54, 54);
 }
 
+.pinkText {
+  color: #e8d3d0;
+  font-weight: 600;
+}
+
+/* -- Modal styling -- */
 .modal {
   position: fixed;
   inset: 0;
@@ -243,6 +269,10 @@ footer {
   position: relative;
 }
 
+#details-category {
+  text-transform: capitalize;
+}
+
 #closeModal {
   position: absolute;
   top: 10px;
@@ -255,7 +285,7 @@ footer {
   margin: 0 auto 1rem; /* centrerar bilden */
   border-radius: 8px;
 }
-
+/* --Cart Modal styling -- */
 .cartItem {
   display: grid;
   /* border: 1px solid black; */
@@ -271,10 +301,14 @@ footer {
   grid-area: bild;
   align-self: center;
   width: 100%;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
+
 #cartName {
   grid-area: titel;
   padding-left: 10px;
+  font-weight: 600;
 }
 
 #cartQuantity {
@@ -293,10 +327,274 @@ footer {
   color: #759078;
 }
 
+#deleteBtn:hover {
+  color: #d4e4ce;
+}
+
+/* --Close/delete button -- */
 .x-btn {
   background: none;
   border: none;
   justify-self: end;
   font-weight: 500;
   font-size: 25px;
+}
+
+.x-btn:hover {
+  color: #e8d3d0;
+}
+
+#totalPrice {
+  text-align: right;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/*-- Media queries --*/
+
+/* -- Tablet view -- */
+@media (min-width: 667px) and (max-width: 1024px) {
+  #topHeader {
+    grid-template-columns: 1fr 250px 1fr;
+  }
+
+  #logoCrop {
+    width: 250px;
+    height: 180px;
+  }
+
+  #logoImg {
+    width: 250px;
+    height: auto;
+  }
+
+  #homeBtn {
+    width: 50px;
+    height: 50px;
+  }
+
+  #homeBtnIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .navBtn {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 2px;
+    min-width: 200px;
+    min-height: 50px;
+  }
+
+  nav {
+    padding: 5px;
+  }
+
+  #cartIkon {
+    width: 50px;
+    height: 50px;
+  }
+  #cartBtn {
+    width: 50px;
+    height: 50px;
+  }
+  #counter {
+    font-weight: 650;
+    font-size: 22px;
+  }
+
+  #gallery {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 30px;
+  }
+
+  .card {
+    width: 300px;
+    height: 420px;
+    padding: 10px;
+  }
+
+  #cardContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .cardImg {
+    width: 200px;
+    height: 230px;
+  }
+
+  #cardTitle {
+    max-width: 100%; /* Gör så att h1 aldrig blir bredare än kortet */
+    white-space: nowrap; /* Ingen radbrytning */
+    overflow: hidden; /* Göm text som inte får plats */
+    text-overflow: ellipsis; /* Lägg till "..." */
+
+    font-weight: 600;
+    font-size: 25px;
+    text-transform: uppercase;
+
+    margin: 0;
+  }
+
+  #cardPrice {
+    font-weight: 700;
+    font-size: 35px;
+    margin: 0;
+    align-self: end;
+  }
+
+  .cardBtn {
+    font-size: 16px;
+    padding: 5px;
+  }
+  #clearCart {
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  .modal-content {
+    font-size: 20px;
+  }
+  #totalPrice {
+    font-size: 22px;
+  }
+
+  .x-btn {
+    font-size: 38px;
+  }
+  .cartModalImg {
+    width: 100px;
+    height: 126px;
+  }
+  .footerText {
+    font-size: 20px;
+  }
+}
+
+/* --Desktop view-- */
+@media (min-width: 1025px) {
+  #topHeader {
+    grid-template-columns: 1fr 250px 1fr;
+  }
+
+  #logoCrop {
+    width: 250px;
+    height: 180px;
+  }
+
+  #logoImg {
+    width: 250px;
+    height: auto;
+  }
+
+  #homeBtn {
+    width: 50px;
+    height: 50px;
+  }
+
+  #homeBtnIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .navBtn {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 2px;
+    min-width: 200px;
+    min-height: 50px;
+  }
+
+  nav {
+    padding: 5px;
+  }
+
+  #cartIkon {
+    width: 50px;
+    height: 50px;
+  }
+  #cartBtn {
+    width: 50px;
+    height: 50px;
+  }
+  #counter {
+    font-weight: 650;
+    font-size: 22px;
+  }
+
+  #gallery {
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 30px;
+  }
+
+  .card {
+    width: 300px;
+    height: 420px;
+    padding: 10px;
+  }
+
+  #cardContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .cardImg {
+    width: 200px;
+    height: 230px;
+  }
+
+  #cardTitle {
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  #cardPrice {
+    font-weight: 700;
+    font-size: 35px;
+    margin: 0;
+    align-self: end;
+  }
+
+  .cardBtn {
+    font-size: 16px;
+    padding: 5px;
+  }
+  #clearCart {
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  .modal-content {
+    width: 90%;
+    height: 90%;
+    font-size: 20px;
+  }
+
+  #totalPrice {
+    font-size: 22px;
+  }
+
+  .x-btn {
+    font-size: 38px;
+  }
+  .cartModalImg {
+    width: 100px;
+    height: 126px;
+  }
+  .footerText {
+    font-size: 20px;
+  }
 }
