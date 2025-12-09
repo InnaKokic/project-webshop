@@ -7,11 +7,11 @@ const cartBtn = document.querySelector("#cartBtn"); //kundvagns Ikon
 const counter = document.querySelector("#counter");
 
 class Product {
-  constructor(id, name, price, inStock, category) {
+  constructor(id, name, price, stock, category) {
     this.id = id;
     this.name = name;
     this.price = price;
-    this.inStock = inStock;
+    this.stock = stock;
     this.category = category;
     this.image = "";
     this.description = "";
@@ -42,53 +42,55 @@ class Product {
     });
 
     const addToCartBtn = card.querySelector("#addToCart-btn");
-
-    // addToCartBtn.addEventListener("click", () => {
-    //   cart.push(this);
-    //   //funktion som lägger till kortet (produkten) i varukorgen
-    //   openCartModal();
-    //   updateCounter();
-    // });
+    //Om lagersaldo 0 så ska knappen visa "Slut i lager" istället för "Lägg till i varukorg"
+    if (this.stock === 0) {
+      addToCartBtn.disabled = true;
+      addToCartBtn.textContent = "Slut i lager";
+      addToCartBtn.classList.add("disabled-btn"); // valfritt för styling
+    }
 
     /*   En funktion som kollar om produkten redan ligger i korgen,
     i så fall plussa antalet, annars lägg till den med antal 1 */
-    addToCartBtn.addEventListener("click", () => {
-      const existingProduct = cart.find((item) => item.id === this.id);
-      if (existingProduct) {
-        existingProduct.quantity++; //skapar en ny egenskap (key) i vårt this-objekt
-      } else {
-        cart.push({ ...this, quantity: 1 });
-      }
-      openCartModal();
-      updateCounter();
-      console.log(cart);
-    });
 
+    //Nedan event funkar bara om produkt finns i lager
+    if (this.stock > 0) {
+      addToCartBtn.addEventListener("click", () => {
+        const existingProduct = cart.find((item) => item.id === this.id); //Jämför produkt id med this.id för att se om produkten redan existerar i varukorgen
+        if (existingProduct) {
+          existingProduct.quantity++; //skapar en ny egenskap (key) i vårt this-objekt
+        } else {
+          cart.push({ ...this, quantity: 1 });
+        }
+        openCartModal();
+        updateCounter();
+      });
+    }
     return card;
   }
 }
-//Array av våra produkter
+
+//Array av våra produkter som objekt
 const products = [
-  new Product(1, "Monstera Deliciosa", 249, true, "gröna växter"),
-  new Product(2, "Guldpalm", 299, true, "gröna växter"),
-  new Product(3, "Svärmorstunga", 199, true, "gröna växter"),
-  new Product(4, "Garderobsblomma", 249, true, "gröna växter"),
-  new Product(5, "Elefantöra", 129, true, "gröna växter"),
-  new Product(6, "Gummiträd", 279, true, "gröna växter"),
+  new Product(1, "Monstera Deliciosa", 249, 12, "gröna växter"),
+  new Product(2, "Guldpalm", 299, 33, "gröna växter"),
+  new Product(3, "Svärmorstunga", 199, 0, "gröna växter"),
+  new Product(4, "Garderobsblomma", 249, 0, "gröna växter"),
+  new Product(5, "Elefantöra", 129, 17, "gröna växter"),
+  new Product(6, "Gummiträd", 279, 1, "gröna växter"),
 
-  new Product(7, "Orkidé", 199, true, "blommande växter"),
-  new Product(8, "Primula", 45, true, "blommande växter"),
-  new Product(9, "Cyklamen", 59, true, "blommande växter"),
-  new Product(10, "Hibiskus", 149, true, "blommande växter"),
-  new Product(11, "Flamingoblomma", 249, true, "blommande växter"),
-  new Product(12, "Kalanchoe", 39, true, "blommande växter"),
+  new Product(7, "Orkidé", 199, 18, "blommande växter"),
+  new Product(8, "Primula", 45, 5, "blommande växter"),
+  new Product(9, "Cyklamen", 59, 10, "blommande växter"),
+  new Product(10, "Hibiskus", 149, 0, "blommande växter"),
+  new Product(11, "Flamingoblomma", 249, 90, "blommande växter"),
+  new Product(12, "Kalanchoe", 39, 7, "blommande växter"),
 
-  new Product(13, "Aloe Vera", 89, true, "suckulenter & kaktusar"),
-  new Product(14, "Echeveria Elegans", 69, true, "suckulenter & kaktusar"),
-  new Product(15, "Plattkaktus", 129, true, "suckulenter & kaktusar"),
-  new Product(16, "Haworthia Fasciata", 79, true, "suckulenter & kaktusar"),
-  new Product(17, "Grön Kaktus Mini – Mix", 39, true, "suckulenter & kaktusar"),
-  new Product(18, "San Pedro kaktus", 179, true, "suckulenter & kaktusar"),
+  new Product(13, "Aloe Vera", 89, 20, "suckulenter & kaktusar"),
+  new Product(14, "Echeveria Elegans", 69, 37, "suckulenter & kaktusar"),
+  new Product(15, "Plattkaktus", 129, 6, "suckulenter & kaktusar"),
+  new Product(16, "Haworthia Fasciata", 79, 15, "suckulenter & kaktusar"),
+  new Product(17, "Grön Kaktus Mini – Mix", 39, 0, "suckulenter & kaktusar"),
+  new Product(18, "San Pedro kaktus", 179, 2, "suckulenter & kaktusar"),
 ];
 
 //Array med våra bilder och description
@@ -277,7 +279,9 @@ function openDetailsModal(product) {
         <h2>${product.name}</h2>
         <p><strong>Pris:</strong> ${product.price} kr</p>
         <p id="details-category"><strong>Kategori:</strong> ${product.category}</p>
-        <p><strong>Lagersaldo:</strong> ${product.inStock ? "Finns i lager" : "Slut i lager"}</p>
+        <p><strong>Lagersaldo:</strong> ${
+          product.stock === 0 ? "Slut i lager" : product.stock < 10 ? "Få i lager (< 10)" : "Finns i lager (+ 10)"
+        }</p>
 
         <h3>Beskrivning</h3>
         <p>${product.description}</p>
