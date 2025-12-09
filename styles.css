@@ -1,295 +1,302 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root {
-    font-family: "montserrat";
+  font-family: "montserrat";
 }
 
 body {
-    background: #736b66;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
+  background: #736b66;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
 header {
-    min-width: 100%; /* gör att headern alltid tar hela bredden */
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
+  min-width: 100%; /* gör att headern alltid tar hela bredden */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #topHeader {
-    display: grid;
-    grid-template-columns: 1fr 150px 1fr;
+  display: grid;
+  grid-template-columns: 1fr 150px 1fr;
 }
 
 #homeBtn {
-    justify-self: start;
+  justify-self: start;
 }
 
 #logoCrop {
-    width: 150px;
-    height: 120px; /*den höjden vi vill visa*/
-    overflow: hidden; /*klipper bort resten av bilden*/
-    display: flex; /*lägg till flex för att justera klippningen, annars klipper den bara botten*/
-    justify-content: center;
-    align-items: center;
+  width: 150px;
+  height: 120px; /*den höjden vi vill visa*/
+  overflow: hidden; /*klipper bort resten av bilden*/
+  display: flex; /*lägg till flex för att justera klippningen, annars klipper den bara botten*/
+  justify-content: center;
+  align-items: center;
 }
 
 #logoImg {
-    width: 150px;
-    height: auto;
+  width: 150px;
+  height: auto;
 }
 
 .cardImg {
-    width: 100px;
-    height: 110px;
+  width: 100px;
+  height: 110px;
 }
 
 #homeBtn {
-    width: 35px;
-    height: 35px;
-    margin-top: 5px;
-    margin-left: 2px;
-    background: none;
-    border: none;
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+  margin-left: 2px;
+  background: none;
+  border: none;
 }
 #homeBtnIcon {
-    width: 35px;
-    height: 35px;
+  width: 35px;
+  height: 35px;
 }
 
 nav {
-    background-color: #e8d3d0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 5px;
-    padding: 3px;
-    gap: 0.4rem;
-    width: 100%;
-    max-width: 100%vw;
+  background-color: #e8d3d0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  padding: 3px;
+  gap: 0.4rem;
+  width: 100%;
+  max-width: 100%vw;
 }
 
 #cartContainer {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-right: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-right: 5px;
 }
 
 #cartBtn {
-    width: 30px;
-    height: 30px;
-    background: none;
-    border: none;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
 }
 
 #cartIkon {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 #counter {
-    color: #759078;
-    font-weight: 600;
-    font-size: 17px;
+  color: #759078;
+  font-weight: 600;
+  font-size: 17px;
 }
 .cartModalImg {
-    width: 50px;
-    height: auto;
+  width: 50px;
+  height: auto;
 }
 
 .navBtn {
-    background-color: #d4e4ce;
-    color: #759078;
-    font-family: "montserrat";
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    border: 1px solid #759078;
-    border-radius: 15px;
-    padding: 2px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    max-width: 110px;
-    min-height: 35px;
+  background-color: #d4e4ce;
+  color: #759078;
+  font-family: "montserrat";
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid #759078;
+  border-radius: 15px;
+  padding: 2px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  max-width: 110px;
+  min-height: 35px;
 }
 
 .navBtn:hover {
-    background-color: #759078;
-    color: #d4e4ce;
-    border: 1px solid #d4e4ce;
+  background-color: #759078;
+  color: #d4e4ce;
+  border: 1px solid #d4e4ce;
 }
 
 main {
-    background-color: #f6f1ec;
-    border-radius: 5px;
-    width: 100%;
-    padding: 20px;
-    margin: 1px;
+  background-color: #f6f1ec;
+  border-radius: 5px;
+  width: 100%;
+  padding: 20px;
+  margin: 1px;
 }
 
 #gallery {
-    display: grid;
-    grid-template-columns: 150px 150px;
-    justify-content: center;
-    column-gap: 30px;
-    row-gap: 30px;
+  display: grid;
+  grid-template-columns: 150px 150px;
+  justify-content: center;
+  column-gap: 30px;
+  row-gap: 30px;
 }
 
 .card {
-    border: 1px solid #b8b8b8;
-    color: #424242;
-    border-radius: 3px;
-    background-color: white;
-    width: 150px;
-    height: 250px;
-    padding: 5px;
+  border: 1px solid #b8b8b8;
+  color: #424242;
+  border-radius: 3px;
+  background-color: white;
+  width: 150px;
+  height: 250px;
+  padding: 5px;
 }
 
 #cardWrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #cardContent {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
 }
 #cardTitle {
-    max-width: 100%; /* Gör så att h1 aldrig blir bredare än kortet */
-    white-space: nowrap; /* Ingen radbrytning */
-    overflow: hidden; /* Göm text som inte får plats */
-    text-overflow: ellipsis; /* Lägg till "..." */
+  max-width: 100%; /* Gör så att h1 aldrig blir bredare än kortet */
+  white-space: nowrap; /* Ingen radbrytning */
+  overflow: hidden; /* Göm text som inte får plats */
+  text-overflow: ellipsis; /* Lägg till "..." */
 
-    font-weight: 600;
-    font-size: 15px;
-    text-transform: uppercase;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
 
-    margin: 0;
+  margin: 0;
 }
 
 #cardPrice {
-    font-weight: 700;
-    font-size: 25px;
-    margin: 0;
-    align-self: end;
+  font-weight: 700;
+  font-size: 25px;
+  margin: 0;
+  align-self: end;
 }
 
 .cardBtn {
-    width: 100%;
-    background-color: #759078;
-    color: #d4e4ce;
-    font-family: "montserrat";
-    text-transform: uppercase;
-    font-size: 11px;
-    font-weight: 550;
-    border: none;
-    border-radius: 3px;
-    padding: 3px;
+  width: 100%;
+  background-color: #759078;
+  color: #d4e4ce;
+  font-family: "montserrat";
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 550;
+  border: none;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+#clearCart {
+  font-size: 13px;
+  padding: 3px;
 }
 
 footer {
-    padding-top: 20px;
-    margin-top: auto;
-    text-align: center;
+  padding-top: 20px;
+  margin-top: auto;
+  text-align: center;
 }
 .footerLink,
 .footerText {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal.hidden {
-    display: none;
+  display: none;
 }
 
 .modal-content {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    max-width: 500px;
-    width: 90%;
-    height: 70%;
-    overflow: scroll;
-    position: relative;
+  background: white;
+  color: #424242;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  height: 70%;
+  overflow: scroll;
+  position: relative;
 }
 
 #closeModal {
-    position: absolute;
-    top: 10px;
-    right: 15px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
 }
 
 .modal-img {
-    width: 50%;
-    display: block;
-    margin: 0 auto 1rem; /* centrerar bilden */
-    border-radius: 8px;
+  width: 50%;
+  display: block;
+  margin: 0 auto 1rem; /* centrerar bilden */
+  border-radius: 8px;
 }
 
 .cartItem {
-    display: grid;
-    /* border: 1px solid black; */
-    grid-template-columns: 1fr 2fr 2fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-        "bild titel knapp"
-        "bild antal pris";
+  display: grid;
+  /* border: 1px solid black; */
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "bild titel knapp"
+    "bild antal pris";
+  border-bottom: 1px solid #424242;
 }
 
 .cartModalImg {
-    grid-area: bild;
-    align-self: center;
-    width: 100%;
+  grid-area: bild;
+  align-self: center;
+  width: 100%;
 }
 #cartName {
-    grid-area: titel;
-    padding-left: 10px;
+  grid-area: titel;
+  padding-left: 10px;
 }
 
 #cartQuantity {
-    grid-area: antal;
-    padding-left: 10px;
+  grid-area: antal;
+  padding-left: 10px;
 }
 
 #cartPrice {
-    grid-area: pris;
-    justify-self: end;
+  grid-area: pris;
+  justify-self: end;
 }
 
 #deleteBtn {
-    grid-area: knapp;
-    width: 40%;
-    color: #759078;
+  grid-area: knapp;
+  width: 40%;
+  color: #759078;
 }
 
 .x-btn {
-    background: none;
-    border: none;
-    justify-self: end;
-    font-weight: 500;
-    font-size: 25px;
+  background: none;
+  border: none;
+  justify-self: end;
+  font-weight: 500;
+  font-size: 25px;
 }
