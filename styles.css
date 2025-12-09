@@ -220,6 +220,12 @@ main {
   color: #759078;
 }
 
+.disabled-btn {
+  background-color: #999;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 #clearCart {
   font-size: 13px;
   padding: 3px;
