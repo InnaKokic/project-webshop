@@ -1,65 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet" />
+<html lang="sv">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>In Sisters Garden</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header>
-      <div id="topHeader">
-        <button id="homeBtn">
-          <img src="assets\icons\Home-Btn.png" id="homeBtnIcon" alt="home button" />
-        </button>
-        <div id="logoCrop">
-          <img src="assets/images/Logotyp.png" alt="logga" id="logoImg" />
+        <!-- Hämtar ny font från google fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Namnger vår sida så det syns i webbläsartaben -->
+        <title>In Sisters Garden</title>
+
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header>
+            <div id="topHeader">
+                <button id="homeBtn">
+                    <img
+                        src="assets\icons\Home-Btn.png"
+                        id="homeBtnIcon"
+                        alt="home button"
+                    />
+                </button>
+                <div id="logoCrop">
+                    <img
+                        src="assets/images/Logotyp.png"
+                        alt="logga"
+                        id="logoImg"
+                    />
+                </div>
+            </div>
+            <nav>
+                <button class="navBtn" id="greenCat">Gröna växter</button>
+                <button class="navBtn" id="flowerCat">Blommande växter</button>
+                <button class="navBtn" id="cactCat">
+                    Suckulenter & kaktusar
+                </button>
+
+                <div id="cartContainer">
+                    <button id="cartBtn">
+                        <img
+                            src="assets/icons/Cart.png"
+                            id="cartIkon"
+                            alt="Kundvagn"
+                        />
+                    </button>
+                    <div id="counter"></div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section id="gallery">
+                <!-- Produkterna hämtas in här från JavaScript -->
+            </section>
+        </main>
+
+        <footer>
+            <p class="footerText">&copy; 2025 In Sisters Garden AB</p>
+            <p class="footerText">
+                Created by Carol<span class="pinkText">in</span>e,
+                <span class="pinkText">In</span>na & Josef<span class="pinkText"
+                    >in</span
+                >e
+            </p>
+        </footer>
+
+        <!-- Vår modal som byggs i js och stylas i css -->
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <button class="x-btn" id="closeModal">&times;</button>
+                <div id="modalBody"></div>
+            </div>
         </div>
-      </div>
-      <nav>
-        <!--  <div id="btnContainer"> -->
-        <button class="navBtn" id="greenCat">Gröna växter</button>
-        <button class="navBtn" id="flowerCat">Blommande växter</button>
-        <button class="navBtn" id="cactCat">Suckulenter & kaktusar</button>
-        <!-- </div> -->
 
-        <div id="cartContainer">
-          <button id="cartBtn">
-            <img src="assets/icons/Cart.png" id="cartIkon" alt="Kundvagn" />
-          </button>
-          <div id="counter"></div>
-        </div>
-      </nav>
-    </header>
-
-    <main>
-      <section id="gallery">
-        <!-- Productcards will be inserted through JavaScript -->
-      </section>
-    </main>
-
-    <footer>
-      <p class="footerText">&copy; 2025 In Sisters Garden AB</p>
-      <p class="footerText">
-        Created by Carol<span class="pinkText">in</span>e, <span class="pinkText">In</span>na & Josef<span
-          class="pinkText"
-          >in</span
-        >e
-      </p>
-    </footer>
-
-    <div id="modal" class="modal hidden">
-      <div class="modal-content">
-        <button class="x-btn" id="closeModal">&times;</button>
-        <div id="modalBody"></div>
-      </div>
-    </div>
-    <script src="main.js"></script>
-  </body>
+        <script src="main.js"></script>
+    </body>
 </html>
