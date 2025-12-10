@@ -2,17 +2,30 @@
   box-sizing: border-box;
 }
 
+/* Globala CSS-variabler – definierade i :root så att de gäller över hela projektet */
 :root {
   font-family: "montserrat";
+  --dark-green: #759078;
+  --light-green: #d4e4ce;
+  --dark-brown: #736b66;
+  --light-pink: #e8d3d0;
+  --light-beige: #f6f1ec;
+  --light-grey: #b8b8b8;
+  --dark-grey: #424242;
 }
 
 body {
-  background: #736b66;
+  background: var(--dark-brown);
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
   margin: 0;
+}
+
+button {
+  cursor: pointer;
+  font-family: "montserrat";
 }
 
 /*-- Header styling --*/
@@ -21,11 +34,6 @@ header {
   min-width: 100%; /* gör att headern alltid tar hela bredden */
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-}
-
-button {
-  cursor: pointer;
 }
 
 #topHeader {
@@ -37,24 +45,20 @@ button {
   justify-self: start;
 }
 
+/* -- Logo styling -- */
 #logoCrop {
   width: 150px;
   height: 120px; /*den höjden vi vill visa*/
   overflow: hidden; /*klipper bort resten av bilden*/
-  display: flex; /*lägg till flex för att justera klippningen, annars klipper den bara botten*/
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  align-items: center; /*alignar bilden till mitten av fönstret vertikalt, annars klipper den bara botten*/
 }
-/* -- Logo styling -- */
+
 #logoImg {
   width: 150px;
   height: auto;
 }
 
-.cardImg {
-  width: 100px;
-  height: 110px;
-}
 /* -- Home icon styling -- */
 #homeBtn {
   width: 35px;
@@ -68,24 +72,17 @@ button {
   width: 35px;
   height: 35px;
 }
+
 /*-- Navbar styling --*/
 nav {
-  background-color: #e8d3d0;
+  background-color: var(--light-pink);
   display: flex;
   justify-content: space-around;
   align-items: center;
   border-radius: 5px;
   padding: 3px;
   gap: 0.4rem;
-  /* width: 100%; */
-  /*   max-width: 100%vw; */
 }
-/* #btnContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-} */
 
 /* -- Cart & counter styling -- */
 #cartContainer {
@@ -107,7 +104,7 @@ nav {
   height: 30px;
 }
 #counter {
-  color: #759078;
+  color: var(--dark-green);
   font-weight: 600;
   font-size: 17px;
 }
@@ -119,13 +116,12 @@ nav {
 /* -- Filter button styling -- */
 
 .navBtn {
-  background-color: #d4e4ce;
-  color: #759078;
-  font-family: "montserrat";
+  background-color: var(--light-green);
+  color: var(--dark-green);
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  border: 1px solid #759078;
+  border: 1px solid var(--dark-green);
   border-radius: 15px;
   padding: 2px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -134,14 +130,14 @@ nav {
 }
 
 .navBtn:hover {
-  background-color: #759078;
-  color: #d4e4ce;
-  border: 1px solid #d4e4ce;
+  background-color: var(--dark-green);
+  color: var(--light-green);
+  border: 1px solid var(--light-green);
 }
 
 /* -- Gallery styling -- */
 main {
-  background-color: #f6f1ec;
+  background-color: var(--light-beige);
   border-radius: 5px;
   width: 100%;
   padding: 20px;
@@ -158,8 +154,8 @@ main {
 
 /*-- Card styling --*/
 .card {
-  border: 1px solid #b8b8b8;
-  color: #424242;
+  border: 1px solid var(--light-grey);
+  color: var(--dark-grey);
   border-radius: 3px;
   background-color: white;
   width: 150px;
@@ -172,7 +168,7 @@ main {
   flex-direction: column;
   min-height: 100%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /*skapar mellanrum mellan cardImg och cardContent*/
 }
 
 #cardContent {
@@ -182,6 +178,11 @@ main {
   gap: 5px;
   align-items: center;
 }
+.cardImg {
+  width: 100px;
+  height: 110px;
+}
+
 #cardTitle {
   max-width: 100%; /* Gör så att h1 aldrig blir bredare än kortet */
   white-space: nowrap; /* Ingen radbrytning */
@@ -204,9 +205,8 @@ main {
 
 .cardBtn {
   width: 100%;
-  background-color: #759078;
-  color: #d4e4ce;
-  font-family: "montserrat";
+  background-color: var(--dark-green);
+  color: var(--light-green);
   text-transform: uppercase;
   font-size: 11px;
   font-weight: 550;
@@ -216,12 +216,13 @@ main {
 }
 
 .cardBtn:hover {
-  background-color: #d4e4ce;
-  color: #759078;
+  background-color: var(--light-green);
+  color: var(--dark-green);
 }
 
 .disabled-btn {
-  background-color: #999;
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
   opacity: 0.6;
   pointer-events: none;
 }
@@ -230,10 +231,10 @@ main {
   font-size: 13px;
   padding: 3px;
 }
+
 /*-- Footer styling --*/
 footer {
-  padding: 20px;
-  margin-top: auto;
+  margin-top: auto; /*trycker ner footern längst ned på sidan */
   text-align: center;
 }
 
@@ -245,15 +246,16 @@ footer {
 }
 
 .pinkText {
-  color: #e8d3d0;
+  color: var(--light-pink);
   font-weight: 600;
 }
 
 /* -- Modal styling -- */
 .modal {
-  position: fixed;
+  position: fixed; /* Fixerar modalen på sidan */
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px); /* blureffekt */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -265,7 +267,7 @@ footer {
 
 .modal-content {
   background: white;
-  color: #424242;
+  color: var(--dark-grey);
   padding: 1.5rem;
   border-radius: 10px;
   max-width: 500px;
