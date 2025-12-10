@@ -1,14 +1,26 @@
 # Webshop – In Sisters Garden
 
-En enkel webshop byggd som grupparbete i kursen Grundläggande programmering. Projektet visar produkter, hanterar kundvagn och inkluderar filtrering, sortering och modaler för produktdetaljer.
+Live-demo: <https://insistersgarden.netlify.app>
 
----
+In Sisters Garden är en enkel och stilren webshop utvecklad som ett grupparbete i kursen Grundläggande programmering. Projektet är byggt med HTML, CSS och JavaScript och simulerar en mindre e-handel med fokus på tydlig UI-design och grundläggande funktionalitet.
+
+Webbshoppen låter användaren:
+
+- Bläddra bland produkter
+
+- Filtrera efter kategori
+
+- Se detaljer för varje produkt via modal
+
+- Lägga till och ta bort produkter i kundvagnen
+
+- Se lagersaldo för varje produkt
+
+- Se uppdaterad totalsumma och antal varor i kundvagnen
+
+Projektet innehåller anpassad styling för mobil, tablet och desktop genom media queries.
 
 ## Installation & start lokalt
-
-Se deployed version här: <insistersgarden.netlify.app>
-
-eller
 
 1. **Klona repositoryt**
 
@@ -16,43 +28,38 @@ eller
 
 2. **Navigera till projektmappen**
 
-cd project-webshop
+   cd project-webshop
 
 3. **Starta projektet**
+
    Öppna index.html direkt i webbläsaren, eller använd Live Server i t.ex. VS Code.
 
-## Teknisk stack
+## Teknisk översikt
 
-- HTML5
+**Byggd med**
 
-- CSS
+- HTML5 – struktur och semantik
 
-- JavaScript (Vanilla JS)
-- Produktklass (Product)
-- Rendering av produktkort
-- Filtrering och sortering
-- Modalhantering
-- Kundvagnslogik
+- CSS – layout, grid, media queries och styling
 
-Projektet är helt frontend-baserat – ingen backend används.
+- JavaScript – rendering, logik, modaler, kundvagn, filtrering
 
-## Struktur i projektet:
+**Kodstruktur**
 
-**Mappstruktur**
-/assets
-../icons
-../images
-.../flowerImages
-..../flowers
-..../greens
-..../kaktusar
-index.html
-main.js
-README.md
-styles.css
+- index.html – huvudstruktur och komponenter
 
-## Vi som skapat denna webshop
+- styles.css – global styling, variabler och responsiv design
 
-**Inna Kokic**
-**Josefine Asplund**
-**Caroline Enggren**
+- main.js – produktklass, rendering, events, modalsystem och kundvagnslogik
+
+- assets/ – bilder och ikoner
+
+**Objektorienterad struktur**
+
+Produkterna skapas som egna instanser av en Product-klass med metoden renderCards() som genererar HTML-kort.
+
+## Teamet bakom
+
+Projektet är skapat av:
+
+**Inna Kokic**, **Josefine Asplund** & **Caroline Enggren**
