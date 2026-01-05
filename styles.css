@@ -1,0 +1,600 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Globala CSS-variabler som används i hela projektet */
+:root {
+  font-family: "montserrat";
+  --dark-green: #759078;
+  --light-green: #d4e4ce;
+  --dark-brown: #736b66;
+  --light-pink: #e8d3d0;
+  --light-beige: #f6f1ec;
+  --light-grey: #b8b8b8;
+  --dark-grey: #424242;
+}
+
+body {
+  background: var(--dark-brown);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  font-family: "montserrat";
+}
+
+/*-- Header styling --*/
+
+header {
+  min-width: 100%; /* gör att headern alltid tar hela bredden */
+  display: flex;
+  flex-direction: column;
+}
+
+#topHeader {
+  display: grid;
+  grid-template-columns: 1fr 150px 1fr;
+}
+
+/* -- Logo styling -- */
+#logoCrop {
+  width: 150px;
+  height: 120px; /*den höjden vi vill visa*/
+  overflow: hidden; /*klipper bort resten av bilden*/
+  display: flex;
+  align-items: center; /*alignar bilden till mitten av fönstret vertikalt, annars klipper den bara botten*/
+}
+
+#logoImg {
+  width: 150px;
+  height: auto;
+}
+
+/* -- Home icon styling -- */
+#homeBtn {
+  justify-self: start;
+  width: 35px;
+  height: 35px;
+  margin-top: 5px;
+  margin-left: 2px;
+  background: none;
+  border: none;
+}
+#homeBtnIcon {
+  width: 35px;
+  height: 35px;
+}
+
+/*-- Navbar styling --*/
+nav {
+  background-color: var(--light-pink);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+  padding: 3px;
+  gap: 0.4rem;
+}
+
+/* -- Cart & counter styling -- */
+#cartContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-right: 5px;
+}
+
+#cartBtn {
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+}
+
+#cartIkon {
+  width: 30px;
+  height: 30px;
+}
+#counter {
+  color: var(--dark-green);
+  font-weight: 600;
+  font-size: 17px;
+}
+
+/* -- Filter button styling -- */
+
+.navBtn {
+  background-color: var(--light-green);
+  color: var(--dark-green);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid var(--dark-green);
+  border-radius: 15px;
+  padding: 2px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  max-width: 110px;
+  min-height: 35px;
+}
+
+.navBtn:hover {
+  background-color: var(--dark-green);
+  color: var(--light-green);
+  border: 1px solid var(--light-green);
+}
+
+/* -- Gallery styling -- */
+main {
+  background-color: var(--light-beige);
+  border-radius: 5px;
+  width: 100%;
+  padding: 20px;
+  margin: 1px;
+}
+
+#gallery {
+  display: grid;
+  grid-template-columns: 150px 150px;
+  justify-content: center;
+  column-gap: 30px;
+  row-gap: 30px;
+}
+
+/*-- Card styling --*/
+.card {
+  border: 1px solid var(--light-grey);
+  color: var(--dark-grey);
+  border-radius: 3px;
+  background-color: white;
+  width: 150px;
+  height: 250px;
+  padding: 5px;
+}
+
+#cardWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  align-items: center;
+  justify-content: space-between; /*skapar mellanrum mellan cardImg och cardContent*/
+}
+
+#cardContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+.cardImg {
+  width: 100px;
+  height: 110px;
+}
+
+#cardTitle {
+  max-width: 100%; /* Gör så att h1 aldrig blir bredare än kortet */
+  white-space: nowrap; /* Ingen radbrytning */
+  overflow: hidden; /* Göm text som inte får plats */
+  text-overflow: ellipsis; /* Lägg till "..." */
+
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: uppercase;
+
+  margin: 0;
+}
+
+#cardPrice {
+  font-weight: 700;
+  font-size: 25px;
+  margin: 0;
+  align-self: end;
+}
+
+.cardBtn {
+  width: 100%;
+  background-color: var(--dark-green);
+  color: var(--light-green);
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 550;
+  border: none;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+.cardBtn:hover {
+  background-color: var(--light-green);
+  color: var(--dark-green);
+}
+
+.disabled-btn {
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+#clearCart {
+  font-size: 13px;
+  padding: 3px;
+}
+
+/*-- Footer styling --*/
+footer {
+  margin-top: auto; /*trycker ner footern längst ned på sidan */
+  text-align: center;
+}
+
+.footerText {
+  text-decoration: none;
+  color: #809c84;
+  font-weight: 500;
+  text-shadow: 0 0 5px rgb(55, 54, 54);
+}
+
+.pinkText {
+  color: var(--light-pink);
+  font-weight: 600;
+}
+
+/* -- Modal styling -- */
+.modal {
+  position: fixed; /* Fixerar modalen på sidan */
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px); /* blureffekt */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  color: var(--dark-grey);
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  height: 70%;
+  overflow: scroll;
+  position: relative;
+}
+
+#details-category {
+  text-transform: capitalize;
+}
+
+#closeModal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.modal-img {
+  width: 50%;
+  display: block;
+  margin: 0 auto 1rem; /* centrerar bilden */
+  border-radius: 8px;
+}
+/* --Cart Modal styling -- */
+.cartItem {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "bild titel knapp"
+    "bild antal pris";
+  border-bottom: 1px solid #424242;
+}
+
+.cartModalImg {
+  grid-area: bild;
+  align-self: center;
+  width: 100%;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+#cartName {
+  grid-area: titel;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+#cartQuantity {
+  grid-area: antal;
+  padding-left: 10px;
+}
+
+#cartPrice {
+  grid-area: pris;
+  justify-self: end;
+}
+
+#deleteBtn {
+  grid-area: knapp;
+  width: 40%;
+  color: #759078;
+}
+
+#deleteBtn:hover {
+  color: #d4e4ce;
+}
+
+#totalPrice {
+  text-align: right;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* --Close/delete button -- */
+.x-btn {
+  background: none;
+  border: none;
+  justify-self: end;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.x-btn:hover {
+  color: #e8d3d0;
+}
+
+/*-- Media queries --*/
+
+/* -- Tablet view -- */
+@media (min-width: 667px) and (max-width: 1024px) {
+  #topHeader {
+    grid-template-columns: 1fr 250px 1fr;
+  }
+
+  #logoCrop {
+    width: 250px;
+    height: 180px;
+  }
+
+  #logoImg {
+    width: 250px;
+    height: auto;
+  }
+
+  #homeBtn {
+    width: 50px;
+    height: 50px;
+  }
+
+  #homeBtnIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .navBtn {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 2px;
+    min-width: 200px;
+    min-height: 50px;
+  }
+
+  nav {
+    padding: 5px;
+  }
+
+  #cartIkon {
+    width: 50px;
+    height: 50px;
+  }
+  #cartBtn {
+    width: 50px;
+    height: 50px;
+  }
+  #counter {
+    font-weight: 650;
+    font-size: 22px;
+  }
+
+  #gallery {
+    display: grid;
+    grid-template-columns: 300px 300px;
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 30px;
+  }
+
+  .card {
+    width: 300px;
+    height: 420px;
+    padding: 10px;
+  }
+
+  #cardContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .cardImg {
+    width: 200px;
+    height: 230px;
+  }
+
+  #cardTitle {
+    max-width: 100%; /* Gör så att h1 aldrig blir bredare än kortet */
+    white-space: nowrap; /* Ingen radbrytning */
+    overflow: hidden; /* Göm text som inte får plats */
+    text-overflow: ellipsis; /* Lägg till "..." */
+
+    font-weight: 600;
+    font-size: 25px;
+    text-transform: uppercase;
+
+    margin: 0;
+  }
+
+  #cardPrice {
+    font-weight: 700;
+    font-size: 35px;
+    margin: 0;
+    align-self: end;
+  }
+
+  .cardBtn {
+    font-size: 16px;
+    padding: 5px;
+  }
+  #clearCart {
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  .modal-content {
+    font-size: 20px;
+  }
+  #totalPrice {
+    font-size: 22px;
+  }
+
+  .x-btn {
+    font-size: 38px;
+  }
+  .cartModalImg {
+    width: 100px;
+    height: 126px;
+  }
+  .footerText {
+    font-size: 20px;
+  }
+}
+
+/* --Desktop view-- */
+@media (min-width: 1025px) {
+  #topHeader {
+    grid-template-columns: 1fr 250px 1fr;
+  }
+
+  #logoCrop {
+    width: 250px;
+    height: 180px;
+  }
+
+  #logoImg {
+    width: 250px;
+    height: auto;
+  }
+
+  #homeBtn {
+    width: 50px;
+    height: 50px;
+  }
+
+  #homeBtnIcon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .navBtn {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 2px;
+    min-width: 200px;
+    min-height: 50px;
+  }
+
+  nav {
+    padding: 5px;
+  }
+
+  #cartIkon {
+    width: 50px;
+    height: 50px;
+  }
+  #cartBtn {
+    width: 50px;
+    height: 50px;
+  }
+  #counter {
+    font-weight: 650;
+    font-size: 22px;
+  }
+
+  #gallery {
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 30px;
+  }
+
+  .card {
+    width: 300px;
+    height: 420px;
+    padding: 10px;
+  }
+
+  #cardContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+
+  .cardImg {
+    width: 200px;
+    height: 230px;
+  }
+
+  #cardTitle {
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  #cardPrice {
+    font-weight: 700;
+    font-size: 35px;
+    margin: 0;
+    align-self: end;
+  }
+
+  .cardBtn {
+    font-size: 16px;
+    padding: 5px;
+  }
+  #clearCart {
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  .modal-content {
+    width: 90%;
+    height: 90%;
+    font-size: 20px;
+  }
+
+  #totalPrice {
+    font-size: 22px;
+  }
+
+  .x-btn {
+    font-size: 38px;
+  }
+  .cartModalImg {
+    width: 100px;
+    height: 126px;
+  }
+  .footerText {
+    font-size: 20px;
+  }
+}
