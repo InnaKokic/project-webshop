@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-/* Globala CSS-variabler – definierade i :root så att de gäller över hela projektet */
+/* Globala CSS-variabler som används i hela projektet */
 :root {
   font-family: "montserrat";
   --dark-green: #759078;
@@ -41,10 +41,6 @@ header {
   grid-template-columns: 1fr 150px 1fr;
 }
 
-#homeBtn {
-  justify-self: start;
-}
-
 /* -- Logo styling -- */
 #logoCrop {
   width: 150px;
@@ -61,6 +57,7 @@ header {
 
 /* -- Home icon styling -- */
 #homeBtn {
+  justify-self: start;
   width: 35px;
   height: 35px;
   margin-top: 5px;
@@ -107,10 +104,6 @@ nav {
   color: var(--dark-green);
   font-weight: 600;
   font-size: 17px;
-}
-.cartModalImg {
-  width: 50px;
-  height: 90px;
 }
 
 /* -- Filter button styling -- */
@@ -296,7 +289,6 @@ footer {
 /* --Cart Modal styling -- */
 .cartItem {
   display: grid;
-  /* border: 1px solid black; */
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
@@ -339,6 +331,12 @@ footer {
   color: #d4e4ce;
 }
 
+#totalPrice {
+  text-align: right;
+  font-weight: 600;
+  font-size: 18px;
+}
+
 /* --Close/delete button -- */
 .x-btn {
   background: none;
@@ -350,12 +348,6 @@ footer {
 
 .x-btn:hover {
   color: #e8d3d0;
-}
-
-#totalPrice {
-  text-align: right;
-  font-weight: 600;
-  font-size: 18px;
 }
 
 /*-- Media queries --*/

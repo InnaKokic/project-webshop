@@ -43,7 +43,7 @@ class Product {
 
     // Kör funktionen som öppnar modal när man klickar på knappen
     detailsBtn.addEventListener("click", () => {
-      openDetailsModal(this); // skickar hela produktobjektet till modal-funktionen (alltså allting som finns i objekten vi skapar nedan i products)
+      openDetailsModal(this); // skickar hela produktobjektet till modal-funktionen (alltså allting som finns i objekten vi skapar nedan i products-arrayen)
     });
 
     const addToCartBtn = card.querySelector("#addToCart-btn"); //Hämtar in addToCart-knappen som skapades i innerHtml ovan
@@ -56,15 +56,16 @@ class Product {
     }
 
     /*  Om produkten finns i lager så går den att lägga till i cart med klick-eventet.
-        Funktionen i eventet kollar om produkten redan ligger i cart,  i så fall addera antalet, annars lägg till den med antal 1. 
-        Detta för att det inte ska skapas flera varor av samma produkt i cart */
+        Funktionen i eventet kollar om produkten redan ligger i cart,  i så fall addera fler i antal på samma produkt, 
+        annars(else) lägg till produkten i ny rad med antal 1. Detta för att det inte ska skapas flera rader av samma produkt i cart */
     if (this.stock > 0) {
       addToCartBtn.addEventListener("click", () => {
         const existingProduct = cart.find((item) => item.id === this.id); //Jämför produkt id med this.id för att se om produkten redan existerar i varukorgen
+
         if (existingProduct) {
-          existingProduct.quantity++; //addera value quantity
+          existingProduct.quantity++; //Om den existerar redan, addera value quantity för varje klick
         } else {
-          cart.push({ ...this, quantity: 1 }); //om inte produkten finns i cart, lägg till den med en ny key: quantity med value = 1
+          cart.push({ ...this, quantity: 1 }); // Annars = om inte produkten finns i cart: Produktobjektet kopieras till kundvagnen och får en ny egenskap "quantity". key: quantity med value = 1
         }
         openCartModal(); //Modalen öppnar när produkten lagts till i cart
         updateCounter(); //Uppdaterar countern i cart-ikonen
@@ -236,16 +237,18 @@ products.forEach((product) => {
 });
 
 // Skapar en kopia av products-arrayen och sorterar den alfabetiskt efter this.name i objektet
-// ... = spread operator skapar en kopia av arrayen så att originalet inte påverkas ifall vi senare vill använda osorterade data.
-//.sort() = sorterar en array alfabetiskt och muterar/ändrar den array den körs på, därför måste arrayen först kopieras.
+// ... = spread operator skapar kopian av arrayen så att originalet inte påverkas ifall vi senare vill använda osorterade data.
+//.sort() = sorterar en array och muterar/ändrar den array den körs på, därför måste arrayen först kopieras.
 //.localeCompare() = Inbyggd funktion som jämför två strängar enligt valt språk (här svenska: "sv")
+// sort() använder localeCompare() för att sortera produkterna alfabetiskt (svenska tecken)
 const sorted = [...products].sort((a, b) => a.name.localeCompare(b.name, "sv"));
 sorted.forEach((product) => {
-  // Loopar igenom den sorterade listan och renderar varje produktkort till galleriet utifrån sort() funktionen
+  // Loopar igenom den sorterade listan och renderar varje produktkort till galleriet utifrån sort() funktionen, alltså i alfabetisk ordning
+
   gallery.appendChild(product.renderCards());
 });
 
-//Funktion som filtrerar ut produkterna baserat på category.
+//Funktion som filtrerar produkterna baserat på category.
 const filteredCategory = (category) => {
   gallery.innerHTML = ""; // Tömmer galleriet
 
@@ -272,25 +275,23 @@ const openDetailsModal = (product) => {
         <h3>Beskrivning</h3>
         <p>${product.description}</p>
     `;
-  //Lagersaldo innehåller en Conditional (ternary) operator som kollar värdet i stock-key i våra objekt
-  //Lagersaldo kan även göras som en global funktion om man vill använda saldo på fler ställen.
+  //Lagersaldo innehåller en Conditional (if/else) ternary operator som kollar värdet på stock-key i våra objekt.
+  //Lagersaldo kan även göras som en global funktion om man vill använda saldo på fler ställen än i vår modal.
 
   //Tar bort klassen "hidden" från html vilket lämnar klass "modal" kvar.
   //När klassen tas bort försvinner stylingen i css som gömmer modalen, då blir den synlig istället
   modal.classList.remove("hidden");
 };
 
-// En funktion som, vid anrop, öppnar upp vår "cart"-modal.
+// En funktion som, vid anrop, öppnar upp vår "cart"-modal och visar dess innehåll.
 const openCartModal = () => {
-  /*   const modal = document.querySelector("#modal");
-  const modalBody = document.querySelector("#modalBody"); */
   modal.classList.remove("hidden");
+
   // Detta är text som endast ska visas om kundvagnen är tom...
   if (cart.length === 0) {
     modalBody.innerHTML = "<h2>Kundvagn</h2><p>Din kundvagn är tom.</p>";
     return;
   }
-
   // ...annars visas detta innehåll
   modalBody.innerHTML = `
   <div id = "cartHeader">
@@ -304,7 +305,7 @@ const openCartModal = () => {
   const clearBtn = document.querySelector("#clearCart");
   clearBtn.addEventListener("click", () => {
     modalBody.innerHTML = "<h2>Kundvagn</h2><p>Din kundvagn är tom.</p>";
-    //splice() är en funktion som tar bort saker i en array. första parametern anger var i arrayen den ska börja rensa, andra parametern anger hur många element som ska tas bort.
+    //splice() är en funktion som tar bort saker i en array. Första parametern anger var i arrayen den ska börja rensa, andra parametern anger hur många element som ska tas bort.
     cart.splice(0, cart.length);
     updateCounter(); // Uppdaterar cart-räknaren i navbaren vid anrop
   });
@@ -312,7 +313,7 @@ const openCartModal = () => {
   // Hämta containern vi skapade i innerHTML ovan
   const container = modalBody.querySelector("#cartModal-content");
 
-  // Loopa igenom varje produkt i kundvagnen.
+  // Loopar igenom varje produkt i kundvagnen.
   // 'item' = produkten i kundvagnen (inkl. name, price, image, quantity)
   // 'index' = produktens position i arrayen (behövs för deleteItem)
   cart.forEach((item, index) => {
@@ -381,11 +382,12 @@ cartBtn.addEventListener("click", (e) => {
   openCartModal();
 });
 
-// STÄNGER MODALEN
+// Event som stänger modalen, görs genom att lägga till klassen "hidden" igen
 document.querySelector("#closeModal").addEventListener("click", () => {
   document.querySelector("#modal").classList.add("hidden"); //Lägger till klassen "hidden" som är display:none, för att gömma modalen igen
 });
 
+// Stänger modalen om man klickar utanför modal-innehållet
 document.querySelector("#modal").addEventListener("click", (e) => {
   if (e.target.id === "modal") {
     e.target.classList.add("hidden");

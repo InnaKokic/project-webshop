@@ -4,6 +4,8 @@ Live-demo: <https://insistersgarden.netlify.app>
 
 In Sisters Garden är en enkel och stilren webshop utvecklad som ett grupparbete i kursen Grundläggande programmering. Projektet är byggt med HTML, CSS och JavaScript och simulerar en mindre e-handel med fokus på tydlig UI-design och grundläggande funktionalitet.
 
+Detta projekt är utvecklat som ett frontend-case utan koppling till backend eller databas. Funktionalitet som produktdata, lager och kundvagn simuleras i klienten med vanilla JavaScript.
+
 Webbshoppen låter användaren:
 
 - Bläddra bland produkter
